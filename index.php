@@ -1,8 +1,5 @@
 <?php
 date_default_timezone_set('Asia/Novokuznetsk'); 
-
-$link = mysqli_connect('localhost', 'логин', 'пароль', 'название_базы') 
-    or die("Ошибка " . mysqli_error($link));
  
 $client  = @$_SERVER['HTTP_CLIENT_IP'];
 $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -21,20 +18,17 @@ if($ip_data && $ip_data->geoplugin_countryName != null)
     $region = $ip_data->geoplugin_region;
     $city = $ip_data->geoplugin_city;
 }
+
+require_once("includes/db_config.php");
 $sql_values = "'".$time."','".$ip."','".$region."','".$city."','".$browser."'"; 
 
 $sql = "INSERT INTO `visitors` (`id_visitor`, `time`, `ip`, `Region`, `City`, `browser`) VALUES (NULL,".$sql_values.")"; 
 $result = $link->query($sql);
 
-/*
-     if($result == True) { echo "Данные записаны";}
-  else {echo $sql;} 
-*/  
-  
     
 mysqli_close($link); 
 
-include "content.html";
+include "tpl/content.html";
 
 ?>
 

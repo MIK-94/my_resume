@@ -93,12 +93,12 @@ $(window).on('resize', function() {
 
 	$(".fancybox").fancybox();
 	
-	
+	// Отправка заявки
 	$("#send").click(function() {
 	  var text =  $("#subject").val();
 	  var mail =  $("#mail").val();
         $.post(
-        "/mail.php",
+        "includes/mail.php",
           {
             text: text,
             mail: mail
