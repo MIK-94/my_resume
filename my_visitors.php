@@ -1,40 +1,42 @@
 <?php
-require_once("includes/db_config.php");
-    or die("Ошибка " . mysqli_error($link));
- 
+require_once("includes/db_config.php"); 
+include "tpl/head.html";
+
 
 $sql = "SELECT * FROM `visitors`"; 
 $result = $link->query($sql);
+echo "<div class='panel text_container my_visitors'>";
 echo "<table>";
 while ($row=$result->fetch_assoc()) {
-echo "<td>";
-    echo "<tr>";
+echo "<tr>";
+    echo "<td>";
     echo $row["time"];
-    echo "</tr>";
+    echo "</td>";
     
-    echo "<tr>";
+    echo "<td>";
     echo $row["ip"];
-    echo "</tr>";
+    echo "</td>";
     
-    echo "<tr>";
+    echo "<td>";
     echo $row["Region"];
-    echo "</tr>";
+    echo "</td>";
     
-    echo "<tr>";
+    echo "<td>";
     echo $row["City"];
-    echo "</tr>";
+    echo "</td>";
     
-    echo "<tr>";
+    echo "<td>";
     echo $row["browser"];
-    echo "</tr>";
+    echo "</td>";
     
-    echo "<tr>";
+    echo "<td>";
     echo $row["i_saw_that"];
-    echo "</tr>";
+    echo "</td>";
 
-echo "</td>";
+echo "</tr>";
 }
 echo "</table>";
+echo "</div>";
 
 mysqli_close($link); 
 

@@ -544,3 +544,15 @@ button{
 	cursor:pointer;
 	font-family: $font-family;
 }
+
+//Стили для файла my_visitors
+.my_visitors{
+
+	table {
+		width: 100%;
+	}
+
+	td {
+		border: 1px solid #000;
+	}
+}

@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Novokuznetsk'); 
+
+
  
 $client  = @$_SERVER['HTTP_CLIENT_IP'];
 $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -20,6 +22,7 @@ if($ip_data && $ip_data->geoplugin_countryName != null)
 }
 
 require_once("includes/db_config.php");
+
 $sql_values = "'".$time."','".$ip."','".$region."','".$city."','".$browser."'"; 
 
 $sql = "INSERT INTO `visitors` (`id_visitor`, `time`, `ip`, `Region`, `City`, `browser`) VALUES (NULL,".$sql_values.")"; 
