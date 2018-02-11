@@ -98,7 +98,7 @@ $(window).on('resize', function() {
 	  var text =  $("#subject").val();
 	  var mail =  $("#mail").val();
         $.post(
-        "includes/mail.php",
+        "tpl/includes/mail.php",
           {
             text: text,
             mail: mail
